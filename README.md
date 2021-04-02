@@ -23,10 +23,10 @@ const kaniko = new Kaniko(stack, 'KanikoDemo', {
 });
 
 // build it once
-kaniko.buildImage();
+kaniko.buildImage('once');
 
 // schedule the build every day 0:00AM
-kaniko.buildImage(Schedule.cron({
+kaniko.buildImage('everyday', Schedule.cron({
   minute: '0',
   hour: '0',
 }));

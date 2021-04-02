@@ -182,101 +182,6 @@ Object {
       },
       "Type": "AWS::IAM::Policy",
     },
-    "KanikoDemoBuildImageOnceEcsRunTaskB3A7F5D7": Object {
-      "DeletionPolicy": "Delete",
-      "DependsOn": Array [
-        "KanikoDemoBuildImageOnceEcsRunTaskCustomResourcePolicy7A24316D",
-      ],
-      "Properties": Object {
-        "Create": Object {
-          "Fn::Join": Array [
-            "",
-            Array [
-              "{\\"service\\":\\"ECS\\",\\"action\\":\\"runTask\\",\\"parameters\\":{\\"cluster\\":\\"",
-              Object {
-                "Ref": "KanikoDemoCluster45D96CBB",
-              },
-              "\\",\\"taskDefinition\\":\\"",
-              Object {
-                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
-              },
-              "\\",\\"launchType\\":\\"FARGATE\\",\\"networkConfiguration\\":{\\"awsvpcConfiguration\\":{\\"assignPublicIp\\":\\"DISABLED\\",\\"subnets\\":[\\"",
-              Object {
-                "Ref": "KanikoDemoVpcPrivateSubnet1Subnet324A3C24",
-              },
-              "\\",\\"",
-              Object {
-                "Ref": "KanikoDemoVpcPrivateSubnet2SubnetC1653A92",
-              },
-              "\\",\\"",
-              Object {
-                "Ref": "KanikoDemoVpcPrivateSubnet3Subnet43B3B56E",
-              },
-              "\\"],\\"securityGroups\\":[\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "KanikoDemoBuildImageOnceFargateSecurityGroupE7BC16B1",
-                  "GroupId",
-                ],
-              },
-              "\\"]}}},\\"physicalResourceId\\":{\\"id\\":\\"",
-              Object {
-                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
-              },
-              "\\"}}",
-            ],
-          ],
-        },
-        "InstallLatestAwsSdk": true,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
-            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::AWS",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "KanikoDemoBuildImageOnceEcsRunTaskCustomResourcePolicy7A24316D": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "ecs:RunTask",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "KanikoDemoBuildImageOnceEcsRunTaskCustomResourcePolicy7A24316D",
-        "Roles": Array [
-          Object {
-            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "KanikoDemoBuildImageOnceFargateSecurityGroupE7BC16B1": Object {
-      "Properties": Object {
-        "GroupDescription": "my-stack-dev/KanikoDemo/BuildImageOnce/FargateSecurityGroup",
-        "SecurityGroupEgress": Array [
-          Object {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "Allow all outbound traffic by default",
-            "IpProtocol": "-1",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::SecurityGroup",
-    },
     "KanikoDemoBuildImageTaskExecutionRoleB24935D9": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
@@ -530,6 +435,87 @@ Object {
       "Type": "AWS::Logs::LogGroup",
       "UpdateReplacePolicy": "Retain",
     },
+    "KanikoDemoBuildImageonceEcsRunTask135D18BE": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "KanikoDemoBuildImageonceEcsRunTaskCustomResourcePolicyFEA11AC7",
+      ],
+      "Properties": Object {
+        "Create": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"ECS\\",\\"action\\":\\"runTask\\",\\"parameters\\":{\\"cluster\\":\\"",
+              Object {
+                "Ref": "KanikoDemoCluster45D96CBB",
+              },
+              "\\",\\"taskDefinition\\":\\"",
+              Object {
+                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
+              },
+              "\\",\\"launchType\\":\\"FARGATE\\",\\"networkConfiguration\\":{\\"awsvpcConfiguration\\":{\\"assignPublicIp\\":\\"DISABLED\\",\\"subnets\\":[\\"p-12345\\",\\"p-67890\\"],\\"securityGroups\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "KanikoDemoBuildImageonceFargateSecurityGroupF4A61951",
+                  "GroupId",
+                ],
+              },
+              "\\"]}}},\\"physicalResourceId\\":{\\"id\\":\\"",
+              Object {
+                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
+              },
+              "\\"}}",
+            ],
+          ],
+        },
+        "InstallLatestAwsSdk": true,
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::AWS",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "KanikoDemoBuildImageonceEcsRunTaskCustomResourcePolicyFEA11AC7": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "ecs:RunTask",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "KanikoDemoBuildImageonceEcsRunTaskCustomResourcePolicyFEA11AC7",
+        "Roles": Array [
+          Object {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "KanikoDemoBuildImageonceFargateSecurityGroupF4A61951": Object {
+      "Properties": Object {
+        "GroupDescription": "my-stack-dev/KanikoDemo/BuildImageonce/FargateSecurityGroup",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "VpcId": "vpc-12345",
+      },
+      "Type": "AWS::EC2::SecurityGroup",
+    },
     "KanikoDemoCluster45D96CBB": Object {
       "Type": "AWS::ECS::Cluster",
     },
@@ -537,456 +523,6 @@ Object {
       "DeletionPolicy": "Delete",
       "Type": "AWS::ECR::Repository",
       "UpdateReplacePolicy": "Delete",
-    },
-    "KanikoDemoVpcB8F3E806": Object {
-      "Properties": Object {
-        "CidrBlock": "10.0.0.0/16",
-        "EnableDnsHostnames": true,
-        "EnableDnsSupport": true,
-        "InstanceTenancy": "default",
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc",
-          },
-        ],
-      },
-      "Type": "AWS::EC2::VPC",
-    },
-    "KanikoDemoVpcIGWD164E08C": Object {
-      "Properties": Object {
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc",
-          },
-        ],
-      },
-      "Type": "AWS::EC2::InternetGateway",
-    },
-    "KanikoDemoVpcPrivateSubnet1DefaultRoute0BF4CAAB": Object {
-      "Properties": Object {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "NatGatewayId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet1NATGateway9FE43DAC",
-        },
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet1RouteTable55469697",
-        },
-      },
-      "Type": "AWS::EC2::Route",
-    },
-    "KanikoDemoVpcPrivateSubnet1RouteTable55469697": Object {
-      "Properties": Object {
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PrivateSubnet1",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::RouteTable",
-    },
-    "KanikoDemoVpcPrivateSubnet1RouteTableAssociation9C7E8B60": Object {
-      "Properties": Object {
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet1RouteTable55469697",
-        },
-        "SubnetId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet1Subnet324A3C24",
-        },
-      },
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-    },
-    "KanikoDemoVpcPrivateSubnet1Subnet324A3C24": Object {
-      "Properties": Object {
-        "AvailabilityZone": "dummy1a",
-        "CidrBlock": "10.0.96.0/19",
-        "MapPublicIpOnLaunch": false,
-        "Tags": Array [
-          Object {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Private",
-          },
-          Object {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Private",
-          },
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PrivateSubnet1",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::Subnet",
-    },
-    "KanikoDemoVpcPrivateSubnet2DefaultRoute4629E8B5": Object {
-      "Properties": Object {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "NatGatewayId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet1NATGateway9FE43DAC",
-        },
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet2RouteTable27E7CA8E",
-        },
-      },
-      "Type": "AWS::EC2::Route",
-    },
-    "KanikoDemoVpcPrivateSubnet2RouteTable27E7CA8E": Object {
-      "Properties": Object {
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PrivateSubnet2",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::RouteTable",
-    },
-    "KanikoDemoVpcPrivateSubnet2RouteTableAssociationE36219C2": Object {
-      "Properties": Object {
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet2RouteTable27E7CA8E",
-        },
-        "SubnetId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet2SubnetC1653A92",
-        },
-      },
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-    },
-    "KanikoDemoVpcPrivateSubnet2SubnetC1653A92": Object {
-      "Properties": Object {
-        "AvailabilityZone": "dummy1b",
-        "CidrBlock": "10.0.128.0/19",
-        "MapPublicIpOnLaunch": false,
-        "Tags": Array [
-          Object {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Private",
-          },
-          Object {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Private",
-          },
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PrivateSubnet2",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::Subnet",
-    },
-    "KanikoDemoVpcPrivateSubnet3DefaultRoute4C3F0D5B": Object {
-      "Properties": Object {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "NatGatewayId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet1NATGateway9FE43DAC",
-        },
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet3RouteTable5454FCF8",
-        },
-      },
-      "Type": "AWS::EC2::Route",
-    },
-    "KanikoDemoVpcPrivateSubnet3RouteTable5454FCF8": Object {
-      "Properties": Object {
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PrivateSubnet3",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::RouteTable",
-    },
-    "KanikoDemoVpcPrivateSubnet3RouteTableAssociation2279BB53": Object {
-      "Properties": Object {
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet3RouteTable5454FCF8",
-        },
-        "SubnetId": Object {
-          "Ref": "KanikoDemoVpcPrivateSubnet3Subnet43B3B56E",
-        },
-      },
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-    },
-    "KanikoDemoVpcPrivateSubnet3Subnet43B3B56E": Object {
-      "Properties": Object {
-        "AvailabilityZone": "dummy1c",
-        "CidrBlock": "10.0.160.0/19",
-        "MapPublicIpOnLaunch": false,
-        "Tags": Array [
-          Object {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Private",
-          },
-          Object {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Private",
-          },
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PrivateSubnet3",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::Subnet",
-    },
-    "KanikoDemoVpcPublicSubnet1DefaultRouteBDDF6683": Object {
-      "DependsOn": Array [
-        "KanikoDemoVpcVPCGW5857F913",
-      ],
-      "Properties": Object {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": Object {
-          "Ref": "KanikoDemoVpcIGWD164E08C",
-        },
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet1RouteTable58602ED0",
-        },
-      },
-      "Type": "AWS::EC2::Route",
-    },
-    "KanikoDemoVpcPublicSubnet1EIP59A0799E": Object {
-      "Properties": Object {
-        "Domain": "vpc",
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet1",
-          },
-        ],
-      },
-      "Type": "AWS::EC2::EIP",
-    },
-    "KanikoDemoVpcPublicSubnet1NATGateway9FE43DAC": Object {
-      "Properties": Object {
-        "AllocationId": Object {
-          "Fn::GetAtt": Array [
-            "KanikoDemoVpcPublicSubnet1EIP59A0799E",
-            "AllocationId",
-          ],
-        },
-        "SubnetId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet1SubnetC11AD7C0",
-        },
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet1",
-          },
-        ],
-      },
-      "Type": "AWS::EC2::NatGateway",
-    },
-    "KanikoDemoVpcPublicSubnet1RouteTable58602ED0": Object {
-      "Properties": Object {
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet1",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::RouteTable",
-    },
-    "KanikoDemoVpcPublicSubnet1RouteTableAssociation3A07DA0D": Object {
-      "Properties": Object {
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet1RouteTable58602ED0",
-        },
-        "SubnetId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet1SubnetC11AD7C0",
-        },
-      },
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-    },
-    "KanikoDemoVpcPublicSubnet1SubnetC11AD7C0": Object {
-      "Properties": Object {
-        "AvailabilityZone": "dummy1a",
-        "CidrBlock": "10.0.0.0/19",
-        "MapPublicIpOnLaunch": true,
-        "Tags": Array [
-          Object {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Public",
-          },
-          Object {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Public",
-          },
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet1",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::Subnet",
-    },
-    "KanikoDemoVpcPublicSubnet2DefaultRouteE044A021": Object {
-      "DependsOn": Array [
-        "KanikoDemoVpcVPCGW5857F913",
-      ],
-      "Properties": Object {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": Object {
-          "Ref": "KanikoDemoVpcIGWD164E08C",
-        },
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet2RouteTableFD7D55BF",
-        },
-      },
-      "Type": "AWS::EC2::Route",
-    },
-    "KanikoDemoVpcPublicSubnet2RouteTableAssociation54C08A59": Object {
-      "Properties": Object {
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet2RouteTableFD7D55BF",
-        },
-        "SubnetId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet2Subnet8C926586",
-        },
-      },
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-    },
-    "KanikoDemoVpcPublicSubnet2RouteTableFD7D55BF": Object {
-      "Properties": Object {
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet2",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::RouteTable",
-    },
-    "KanikoDemoVpcPublicSubnet2Subnet8C926586": Object {
-      "Properties": Object {
-        "AvailabilityZone": "dummy1b",
-        "CidrBlock": "10.0.32.0/19",
-        "MapPublicIpOnLaunch": true,
-        "Tags": Array [
-          Object {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Public",
-          },
-          Object {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Public",
-          },
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet2",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::Subnet",
-    },
-    "KanikoDemoVpcPublicSubnet3DefaultRouteDCBE2F5F": Object {
-      "DependsOn": Array [
-        "KanikoDemoVpcVPCGW5857F913",
-      ],
-      "Properties": Object {
-        "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": Object {
-          "Ref": "KanikoDemoVpcIGWD164E08C",
-        },
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet3RouteTable2928C861",
-        },
-      },
-      "Type": "AWS::EC2::Route",
-    },
-    "KanikoDemoVpcPublicSubnet3RouteTable2928C861": Object {
-      "Properties": Object {
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet3",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::RouteTable",
-    },
-    "KanikoDemoVpcPublicSubnet3RouteTableAssociation22CA044D": Object {
-      "Properties": Object {
-        "RouteTableId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet3RouteTable2928C861",
-        },
-        "SubnetId": Object {
-          "Ref": "KanikoDemoVpcPublicSubnet3Subnet360A175E",
-        },
-      },
-      "Type": "AWS::EC2::SubnetRouteTableAssociation",
-    },
-    "KanikoDemoVpcPublicSubnet3Subnet360A175E": Object {
-      "Properties": Object {
-        "AvailabilityZone": "dummy1c",
-        "CidrBlock": "10.0.64.0/19",
-        "MapPublicIpOnLaunch": true,
-        "Tags": Array [
-          Object {
-            "Key": "aws-cdk:subnet-name",
-            "Value": "Public",
-          },
-          Object {
-            "Key": "aws-cdk:subnet-type",
-            "Value": "Public",
-          },
-          Object {
-            "Key": "Name",
-            "Value": "my-stack-dev/KanikoDemo/Vpc/PublicSubnet3",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::Subnet",
-    },
-    "KanikoDemoVpcVPCGW5857F913": Object {
-      "Properties": Object {
-        "InternetGatewayId": Object {
-          "Ref": "KanikoDemoVpcIGWD164E08C",
-        },
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::VPCGatewayAttachment",
     },
     "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": Object {
       "DependsOn": Array [

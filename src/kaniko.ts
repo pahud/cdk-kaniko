@@ -77,9 +77,9 @@ export class Kaniko extends cdk.Construct {
    * Build the image with kaniko.
    * @param schedule The schedule to repeatedly build the image
    */
-  public buildImage(schedule?: Schedule) {
+  public buildImage(id: string, schedule?: Schedule) {
     // run it just once
-    new RunTask(this, 'BuildImageOnce', {
+    new RunTask(this, `BuildImage${id}`, {
       task: this.task,
       cluster: this.cluster,
       schedule,
