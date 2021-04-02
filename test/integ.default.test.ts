@@ -19,7 +19,7 @@ test('minimal usage', () => {
     contextSubPath: './.devcontainer',
   });
 
-  kaniko.buildImage();
+  kaniko.buildImage('once');
 
   // THEN
   expect(SynthUtils.synthesize(stack).template).toMatchSnapshot();

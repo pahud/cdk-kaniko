@@ -182,101 +182,6 @@ Object {
       },
       "Type": "AWS::IAM::Policy",
     },
-    "KanikoDemoBuildImageOnceEcsRunTaskB3A7F5D7": Object {
-      "DeletionPolicy": "Delete",
-      "DependsOn": Array [
-        "KanikoDemoBuildImageOnceEcsRunTaskCustomResourcePolicy7A24316D",
-      ],
-      "Properties": Object {
-        "Create": Object {
-          "Fn::Join": Array [
-            "",
-            Array [
-              "{\\"service\\":\\"ECS\\",\\"action\\":\\"runTask\\",\\"parameters\\":{\\"cluster\\":\\"",
-              Object {
-                "Ref": "KanikoDemoCluster45D96CBB",
-              },
-              "\\",\\"taskDefinition\\":\\"",
-              Object {
-                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
-              },
-              "\\",\\"launchType\\":\\"FARGATE\\",\\"networkConfiguration\\":{\\"awsvpcConfiguration\\":{\\"assignPublicIp\\":\\"DISABLED\\",\\"subnets\\":[\\"",
-              Object {
-                "Ref": "KanikoDemoVpcPrivateSubnet1Subnet324A3C24",
-              },
-              "\\",\\"",
-              Object {
-                "Ref": "KanikoDemoVpcPrivateSubnet2SubnetC1653A92",
-              },
-              "\\",\\"",
-              Object {
-                "Ref": "KanikoDemoVpcPrivateSubnet3Subnet43B3B56E",
-              },
-              "\\"],\\"securityGroups\\":[\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "KanikoDemoBuildImageOnceFargateSecurityGroupE7BC16B1",
-                  "GroupId",
-                ],
-              },
-              "\\"]}}},\\"physicalResourceId\\":{\\"id\\":\\"",
-              Object {
-                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
-              },
-              "\\"}}",
-            ],
-          ],
-        },
-        "InstallLatestAwsSdk": true,
-        "ServiceToken": Object {
-          "Fn::GetAtt": Array [
-            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
-            "Arn",
-          ],
-        },
-      },
-      "Type": "Custom::AWS",
-      "UpdateReplacePolicy": "Delete",
-    },
-    "KanikoDemoBuildImageOnceEcsRunTaskCustomResourcePolicy7A24316D": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "ecs:RunTask",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "KanikoDemoBuildImageOnceEcsRunTaskCustomResourcePolicy7A24316D",
-        "Roles": Array [
-          Object {
-            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "KanikoDemoBuildImageOnceFargateSecurityGroupE7BC16B1": Object {
-      "Properties": Object {
-        "GroupDescription": "my-stack-dev/KanikoDemo/BuildImageOnce/FargateSecurityGroup",
-        "SecurityGroupEgress": Array [
-          Object {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "Allow all outbound traffic by default",
-            "IpProtocol": "-1",
-          },
-        ],
-        "VpcId": Object {
-          "Ref": "KanikoDemoVpcB8F3E806",
-        },
-      },
-      "Type": "AWS::EC2::SecurityGroup",
-    },
     "KanikoDemoBuildImageTaskExecutionRoleB24935D9": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
@@ -529,6 +434,101 @@ Object {
       "DeletionPolicy": "Retain",
       "Type": "AWS::Logs::LogGroup",
       "UpdateReplacePolicy": "Retain",
+    },
+    "KanikoDemoBuildImageonceEcsRunTask135D18BE": Object {
+      "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "KanikoDemoBuildImageonceEcsRunTaskCustomResourcePolicyFEA11AC7",
+      ],
+      "Properties": Object {
+        "Create": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "{\\"service\\":\\"ECS\\",\\"action\\":\\"runTask\\",\\"parameters\\":{\\"cluster\\":\\"",
+              Object {
+                "Ref": "KanikoDemoCluster45D96CBB",
+              },
+              "\\",\\"taskDefinition\\":\\"",
+              Object {
+                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
+              },
+              "\\",\\"launchType\\":\\"FARGATE\\",\\"networkConfiguration\\":{\\"awsvpcConfiguration\\":{\\"assignPublicIp\\":\\"DISABLED\\",\\"subnets\\":[\\"",
+              Object {
+                "Ref": "KanikoDemoVpcPrivateSubnet1Subnet324A3C24",
+              },
+              "\\",\\"",
+              Object {
+                "Ref": "KanikoDemoVpcPrivateSubnet2SubnetC1653A92",
+              },
+              "\\",\\"",
+              Object {
+                "Ref": "KanikoDemoVpcPrivateSubnet3Subnet43B3B56E",
+              },
+              "\\"],\\"securityGroups\\":[\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "KanikoDemoBuildImageonceFargateSecurityGroupF4A61951",
+                  "GroupId",
+                ],
+              },
+              "\\"]}}},\\"physicalResourceId\\":{\\"id\\":\\"",
+              Object {
+                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
+              },
+              "\\"}}",
+            ],
+          ],
+        },
+        "InstallLatestAwsSdk": true,
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::AWS",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "KanikoDemoBuildImageonceEcsRunTaskCustomResourcePolicyFEA11AC7": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "ecs:RunTask",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Ref": "KanikoDemoBuildImageTaskFB962D9E",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "KanikoDemoBuildImageonceEcsRunTaskCustomResourcePolicyFEA11AC7",
+        "Roles": Array [
+          Object {
+            "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "KanikoDemoBuildImageonceFargateSecurityGroupF4A61951": Object {
+      "Properties": Object {
+        "GroupDescription": "my-stack-dev/KanikoDemo/BuildImageonce/FargateSecurityGroup",
+        "SecurityGroupEgress": Array [
+          Object {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1",
+          },
+        ],
+        "VpcId": Object {
+          "Ref": "KanikoDemoVpcB8F3E806",
+        },
+      },
+      "Type": "AWS::EC2::SecurityGroup",
     },
     "KanikoDemoCluster45D96CBB": Object {
       "Type": "AWS::ECS::Cluster",
