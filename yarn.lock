@@ -1530,9 +1530,9 @@ ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4:
     uri-js "^4.2.2"
 
 ajv@^8.0.1:
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.0.3.tgz#81f1b07003b329f000b7912e59a24f52392867b6"
-  integrity sha512-Df6NAivu9KpZw+q8ySijAgLvr1mUA5ihkRvCLCxpdYR21ann5yIuN+PpFxmweSj7i3yjJ0x5LN5KVs0RRzskAQ==
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.0.4.tgz#7dc77632eb5dcde646b3aa18dd3bfe0d8965f379"
+  integrity sha512-v1qwknPv7rNGqtiaC4ywb3OZ3LNrEjbJL5igAe8eTbXOj8ye0XVul2pFRulwl/j3QfUKdQ/J9HZaYfQCnR7cvA==
   dependencies:
     fast-deep-equal "^3.1.1"
     json-schema-traverse "^1.0.0"
@@ -1951,10 +1951,10 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk-fargate-run-task@^0.0.82:
-  version "0.0.82"
-  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.0.82.tgz#f82079eb5216dc64562f3c729b772dcff15cfe2f"
-  integrity sha512-eTpBF4ZmlltHGXsWBfQEW6qisTHzDsDuTWq6O+sxrB7sKgodcwUzgsmtfZCUHuRkAYIDjYdsl/Rgf3KaV3Wzkg==
+cdk-fargate-run-task@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.1.tgz#88a5aeaca3fcbff8ffb605d51a80f73b68e7070a"
+  integrity sha512-lUhJKYEF8ec7jsw+3zDmIzQRxsZjsvdVlakil7w1v9XXVWs5ty7fbghSKaVmXaArzteMa3VsYDujhMKnTB9ZNg==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.73.0"
     "@aws-cdk/aws-ecs" "^1.73.0"

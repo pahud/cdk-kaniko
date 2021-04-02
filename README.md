@@ -32,6 +32,18 @@ kaniko.buildImage('everyday', Schedule.cron({
 }));
 ```
 
+# fargate spot support
+
+Use `fargateSpot` to enable the `FARGATE_SPOT` capacity provider to provision the fargate tasks.
+
+```ts
+new Kaniko(stack, 'KanikoDemo', {
+  context,
+  contextSubPath,
+  fargateSpot: true,
+});
+```
+
 # Note
 
 Please note the image building could take some minutes depending on the complexity of the provided `Dockerfile`. On deployment completed, you can check and tail the **AWS Fargate** task logs from the **AWS CloudWatch Logs** to view all the build output.
