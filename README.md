@@ -6,9 +6,6 @@ Build images with kanilo in AWS Fargate
 
 `cdk-kaniko` is a CDK construct library that allows you to build images with kaniko in AWS Fargate. Inspired from the blog post - [Building container images on Amazon ECS on AWS Fargate](https://aws.amazon.com/tw/blogs/containers/building-container-images-on-amazon-ecs-on-aws-fargate/) by _Re Alvarez-Parmar_ and _Olly Pomeroy_, this library aims abstract away all the infrastructure while focusing on the high level CDK constructs. Behind the scene, `cdk-kaniko` leverages the [cdk-fargate-run-task](https://github.com/pahud/cdk-fargate-run-task) so you can build the image just once or schedule the building repeatedly.
 
-![](https://pbs.twimg.com/media/Ex8j4hPVIAEFVVf?format=jpg&name=4096x4096)
-
-
 # Sample
 
 ```ts
