@@ -17,6 +17,7 @@ export class IntegTesting {
     const kaniko = new Kaniko(stack, 'KanikoDemo', {
       context: 'git://github.com/pahud/vscode.git',
       contextSubPath: './.devcontainer',
+      fargateSpot: true,
     });
 
     // build it once

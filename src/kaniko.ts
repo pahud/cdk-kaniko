@@ -29,17 +29,27 @@ export interface KanikoProps {
    * @default Dockerfile
    */
   readonly dockerfile?: string;
+  /**
+   * Use FARGATE_SPOT capacity provider.
+   */
+  readonly fargateSpot?: boolean;
 }
 
 export class Kaniko extends cdk.Construct {
   readonly destinationRepository: ecr.IRepository
   readonly cluster: ecs.ICluster;
   readonly task: ecs.FargateTaskDefinition;
+  private fargateSpot: boolean;
   constructor(scope: cdk.Construct, id: string, props: KanikoProps) {
     super(scope, id);
 
+    this.fargateSpot = props.fargateSpot ?? false;
+
     const vpc = getOrCreateVpc(this);
-    this.cluster = new ecs.Cluster(this, 'Cluster', { vpc });
+    this.cluster = new ecs.Cluster(this, 'Cluster', {
+      vpc,
+      capacityProviders: ['FARGATE', 'FARGATE_SPOT'],
+    });
     this.destinationRepository = props.destinationRepository ?? this._createDestinationRepository();
 
     const executorImage = ecs.ContainerImage.fromAsset(path.join(__dirname, '../docker.d'));
@@ -83,6 +93,12 @@ export class Kaniko extends cdk.Construct {
       task: this.task,
       cluster: this.cluster,
       schedule,
+      capacityProviderStrategy: this.fargateSpot ? [
+        {
+          capacityProvider: 'FARGATE_SPOT',
+          weight: 1,
+        },
+      ] : undefined,
     });
   }
 }

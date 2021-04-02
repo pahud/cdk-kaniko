@@ -38,6 +38,7 @@ new Kaniko(scope: Construct, id: string, props: KanikoProps)
   * **contextSubPath** (<code>string</code>)  The context sub path. __*Optional*__
   * **destinationRepository** (<code>[IRepository](#aws-cdk-aws-ecr-irepository)</code>)  The target ECR repository. __*Default*__: create a new ECR private repository
   * **dockerfile** (<code>string</code>)  The Dockerfile for the image building. __*Default*__: Dockerfile
+  * **fargateSpot** (<code>boolean</code>)  Use FARGATE_SPOT capacity provider. __*Optional*__
 
 
 
@@ -82,6 +83,7 @@ Name | Type | Description
 **contextSubPath**? | <code>string</code> | The context sub path.<br/>__*Optional*__
 **destinationRepository**? | <code>[IRepository](#aws-cdk-aws-ecr-irepository)</code> | The target ECR repository.<br/>__*Default*__: create a new ECR private repository
 **dockerfile**? | <code>string</code> | The Dockerfile for the image building.<br/>__*Default*__: Dockerfile
+**fargateSpot**? | <code>boolean</code> | Use FARGATE_SPOT capacity provider.<br/>__*Optional*__
 
 
 
