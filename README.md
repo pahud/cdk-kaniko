@@ -1,6 +1,6 @@
 [![NPM version](https://badge.fury.io/js/cdk-kaniko.svg)](https://badge.fury.io/js/cdk-kaniko)
 [![PyPI version](https://badge.fury.io/py/cdk-kaniko.svg)](https://badge.fury.io/py/cdk-kaniko)
-![Release](https://github.com/pahud/cdk-kaniko/workflows/Release/badge.svg?branch=main)
+[![Release](https://github.com/pahud/cdk-kaniko/actions/workflows/release.yml/badge.svg)](https://github.com/pahud/cdk-kaniko/actions/workflows/release.yml)
 
 # `cdk-kaniko`
 
