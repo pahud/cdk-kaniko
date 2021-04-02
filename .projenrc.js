@@ -26,6 +26,7 @@ const project = new AwsCdkConstructLibrary({
     distName: 'cdk-kaniko',
     module: 'cdk_kaniko',
   },
+  devDeps: ['projen-automate-it'],
   keywords: [
     'kaniko',
     'cdk',
