@@ -53,14 +53,15 @@ Name | Type | Description
 ### Methods
 
 
-#### buildImage(schedule?) <a id="cdk-kaniko-kaniko-buildimage"></a>
+#### buildImage(id, schedule?) <a id="cdk-kaniko-kaniko-buildimage"></a>
 
 Build the image with kaniko.
 
 ```ts
-buildImage(schedule?: Schedule): void
+buildImage(id: string, schedule?: Schedule): void
 ```
 
+* **id** (<code>string</code>)  *No description*
 * **schedule** (<code>[Schedule](#aws-cdk-aws-events-schedule)</code>)  The schedule to repeatedly build the image.
 
 
