@@ -39,15 +39,16 @@ export class Kaniko extends cdk.Construct {
   readonly destinationRepository: ecr.IRepository
   readonly cluster: ecs.ICluster;
   readonly task: ecs.FargateTaskDefinition;
+  readonly vpc: ec2.IVpc;
   private fargateSpot: boolean;
   constructor(scope: cdk.Construct, id: string, props: KanikoProps) {
     super(scope, id);
 
     this.fargateSpot = props.fargateSpot ?? false;
 
-    const vpc = getOrCreateVpc(this);
+    this.vpc = getOrCreateVpc(this);
     this.cluster = new ecs.Cluster(this, 'Cluster', {
-      vpc,
+      vpc: this.vpc,
       capacityProviders: ['FARGATE', 'FARGATE_SPOT'],
     });
     this.destinationRepository = props.destinationRepository ?? this._createDestinationRepository();
@@ -89,7 +90,7 @@ export class Kaniko extends cdk.Construct {
    */
   public buildImage(id: string, schedule?: Schedule) {
     // run it just once
-    new RunTask(this, `BuildImage${id}`, {
+    const newRunTask = new RunTask(this, `BuildImage${id}`, {
       task: this.task,
       cluster: this.cluster,
       schedule,
@@ -100,6 +101,10 @@ export class Kaniko extends cdk.Construct {
         },
       ] : undefined,
     });
+    // if vpc is a new resource in this stack, run task job will add dependency on vpc created.
+    if ((this.node.tryFindChild('Vpc') as ec2.Vpc).node.children.find(c => (c as cdk.CfnResource).cfnResourceType === 'AWS::EC2::VPC')) {
+      newRunTask.node.addDependency(this.vpc);
+    };
   }
 }
 
