@@ -50,6 +50,7 @@ Name | Type | Description
 **cluster** | <code>[ICluster](#aws-cdk-aws-ecs-icluster)</code> | <span></span>
 **destinationRepository** | <code>[IRepository](#aws-cdk-aws-ecr-irepository)</code> | <span></span>
 **task** | <code>[FargateTaskDefinition](#aws-cdk-aws-ecs-fargatetaskdefinition)</code> | <span></span>
+**vpc** | <code>[IVpc](#aws-cdk-aws-ec2-ivpc)</code> | <span></span>
 
 ### Methods
 
