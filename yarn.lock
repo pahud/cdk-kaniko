@@ -1926,9 +1926,9 @@ caseless@~0.12.0:
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
 cdk-fargate-run-task@^0.1.1:
-  version "0.1.25"
-  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.25.tgz#97d16cc52a31fd1e078f3c621da7c04832b348dc"
-  integrity sha512-WJlKCk0o7kSmLd2Oe3TJYdZaLqaW3Ak4pnO5ZCsYkrxgt6519ezam9wiMD3aBBMRVat8AeT12dWBWOB70vXkoQ==
+  version "0.1.26"
+  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.26.tgz#6d87823d4b32a9397b69172f7480b370661cf87f"
+  integrity sha512-7PILxdoDGCL2gpmKUbOE9X/X7zd+qWG/pP28DbuGP9ficn1opL7C4eZCscQBQGFsY8mSKGx0AwAlDaK5p0jF9w==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.73.0"
     "@aws-cdk/aws-ecs" "^1.73.0"
@@ -2613,9 +2613,9 @@ ecc-jsbn@~0.1.1:
     safer-buffer "^2.1.0"
 
 electron-to-chromium@^1.3.723:
-  version "1.3.724"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.724.tgz#2d342f2a124e6138462de9a8c87310d0fc993752"
-  integrity sha512-dvHiOuYbTs1kQ9czhBKfapWGeyq3hs469bdbHFNpw01bOeau6B6dH4d8IteGZaMEGqVGmflrvWmxNpwvS+dhkA==
+  version "1.3.725"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.725.tgz#04fc83f9189169aff50f0a00c6b4090b910cba85"
+  integrity sha512-2BbeAESz7kc6KBzs7WVrMc1BY5waUphk4D4DX5dSQXJhsc3tP5ZFaiyuL0AB7vUKzDYpIeYwTYlEfxyjsGUrhw==
 
 emittery@^0.7.1:
   version "0.7.2"
