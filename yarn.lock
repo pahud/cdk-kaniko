@@ -1904,9 +1904,9 @@ camelcase@^6.0.0, camelcase@^6.2.0:
   integrity sha512-c7wVvbw3f37nuobQNtgsgG9POC9qMbNuMQmTCqZv23b6MIz0fcYpBiOlv9gEN/hdLdnZTDQhg6e9Dq5M1vKvfg==
 
 caniuse-lite@^1.0.30001219:
-  version "1.0.30001219"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001219.tgz#5bfa5d0519f41f993618bd318f606a4c4c16156b"
-  integrity sha512-c0yixVG4v9KBc/tQ2rlbB3A/bgBFRvl8h8M4IeUbqCca4gsiCfvtaheUssbnux/Mb66Vjz7x8yYjDgYcNQOhyQ==
+  version "1.0.30001220"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001220.tgz#c080e1c8eefb99f6cc9685da6313840bdbaf4c36"
+  integrity sha512-pjC2T4DIDyGAKTL4dMvGUQaMUHRmhvPpAgNNTa14jaBWHu+bLQgvpFqElxh9L4829Fdx0PlKiMp3wnYldRtECA==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -1926,9 +1926,9 @@ caseless@~0.12.0:
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
 cdk-fargate-run-task@^0.1.1:
-  version "0.1.26"
-  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.26.tgz#6d87823d4b32a9397b69172f7480b370661cf87f"
-  integrity sha512-7PILxdoDGCL2gpmKUbOE9X/X7zd+qWG/pP28DbuGP9ficn1opL7C4eZCscQBQGFsY8mSKGx0AwAlDaK5p0jF9w==
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.27.tgz#dde7cc9c96ff9ddaf8414f635c787f24fa7dc99c"
+  integrity sha512-xYh4nZf1LhJth8FVHiA0eEyCaCkWU7b2VLm64yUJdfdYinv9vCL1BPkgVYdVpwf+QSnqGGEFWwhhjajcWbKYjw==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.73.0"
     "@aws-cdk/aws-ecs" "^1.73.0"
