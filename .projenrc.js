@@ -1,7 +1,4 @@
 const { AwsCdkConstructLibrary } = require('projen');
-const { Automation } = require('projen-automate-it');
-
-const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new AwsCdkConstructLibrary({
   author: 'Pahud Hsieh',
@@ -26,7 +23,6 @@ const project = new AwsCdkConstructLibrary({
     distName: 'cdk-kaniko',
     module: 'cdk_kaniko',
   },
-  devDeps: ['projen-automate-it'],
   keywords: [
     'kaniko',
     'cdk',
@@ -34,12 +30,6 @@ const project = new AwsCdkConstructLibrary({
     'aws',
   ],
 });
-
-const automation = new Automation(project, {
-  automationToken: AUTOMATION_TOKEN,
-});
-
-automation.projenYarnUpgrade();
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'images', 'yarn-error.log'];
 project.npmignore.exclude(...common_exclude);
