@@ -1,4 +1,6 @@
-const { AwsCdkConstructLibrary } = require('projen');
+const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism } = require('projen');
+
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN'
 
 const project = new AwsCdkConstructLibrary({
   author: 'Pahud Hsieh',
@@ -18,7 +20,16 @@ const project = new AwsCdkConstructLibrary({
   ],
   deps: ['cdk-fargate-run-task'],
   peerDeps: ['cdk-fargate-run-task'],
-  dependabot: false,
+  depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    workflowOptions: {
+      labels: ['auto-approve', 'auto-merge'],
+      secret: AUTOMATION_TOKEN,
+    },
+  }),
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['pahud'],
+  },
   publishToPypi: {
     distName: 'cdk-kaniko',
     module: 'cdk_kaniko',
