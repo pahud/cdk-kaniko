@@ -622,13 +622,20 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "KanikoDemoCluster45D96CBB": Object {
+      "Type": "AWS::ECS::Cluster",
+    },
+    "KanikoDemoClusterBDD62950": Object {
       "Properties": Object {
         "CapacityProviders": Array [
           "FARGATE",
           "FARGATE_SPOT",
         ],
+        "Cluster": Object {
+          "Ref": "KanikoDemoCluster45D96CBB",
+        },
+        "DefaultCapacityProviderStrategy": Array [],
       },
-      "Type": "AWS::ECS::Cluster",
+      "Type": "AWS::ECS::ClusterCapacityProviderAssociations",
     },
     "KanikoDemoRepoE4811266": Object {
       "DeletionPolicy": "Delete",
