@@ -21,6 +21,7 @@ const project = new AwsCdkConstructLibrary({
   deps: ['cdk-fargate-run-task'],
   peerDeps: ['cdk-fargate-run-task'],
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    ignoreProjen: false,
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
       secret: AUTOMATION_TOKEN,
