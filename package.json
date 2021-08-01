@@ -61,7 +61,7 @@
     "@aws-cdk/aws-ecs": "^1.96.0",
     "@aws-cdk/aws-events": "^1.96.0",
     "@aws-cdk/core": "^1.96.0",
-    "cdk-fargate-run-task": "^0.1.36",
+    "cdk-fargate-run-task": "^0.1.37",
     "constructs": "^3.2.27"
   },
   "dependencies": {
@@ -70,7 +70,7 @@
     "@aws-cdk/aws-ecs": "^1.96.0",
     "@aws-cdk/aws-events": "^1.96.0",
     "@aws-cdk/core": "^1.96.0",
-    "cdk-fargate-run-task": "^0.1.36"
+    "cdk-fargate-run-task": "^0.1.37"
   },
   "bundledDependencies": [],
   "keywords": [
