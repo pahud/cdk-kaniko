@@ -1439,9 +1439,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "16.4.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.8.tgz#ef4974f47524448428542365db2fe7b638f928e5"
-  integrity sha512-VL7RZyCpfYEmbyd3/Eq5RNYhZt7yoL1JThZQ3KzimzhLya2Qa86U1ZZmioNWAAjiz99z1ED1xF9NUV2srvfVrA==
+  version "16.4.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.9.tgz#04eb3da65d08ea377f5e682bf0d22dc1f5e7f19e"
+  integrity sha512-HXhRf581nCItzn8yevv4LYt+bJ5cBbDBAJExbDPMeU/2n5/j0ZemGpayahFBP4xL7RseaCLASLD9i9AYyDe7Nw==
 
 "@types/node@^10.17.0", "@types/node@^10.17.60":
   version "10.17.60"
@@ -2116,10 +2116,10 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk-fargate-run-task@^0.1.36:
-  version "0.1.36"
-  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.36.tgz#067bb26a65867de77d900bc3a06590cbfc93eebb"
-  integrity sha512-HvfbR+81BTarQ+R4qco8qpH6hVd/3TU1MkM6gbezmFjB3qjVWp8Fv+t2nzHUMwzIXYLE16yjOd0X90T1lTPfzA==
+cdk-fargate-run-task@^0.1.37:
+  version "0.1.37"
+  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.37.tgz#4d2aa19e931a4069640642079055193bb69a4d6e"
+  integrity sha512-fvCBtSzZUfmAOo9L/T9S52lvMOu8ZTdqNt7tjEmJ9n+2Xmk/DiuEJK5Q5id4jfkln9yQjPbaGIS3pyOr0PDqzw==
   dependencies:
     "@aws-cdk/aws-ec2" "^1.73.0"
     "@aws-cdk/aws-ecs" "^1.73.0"
