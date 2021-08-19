@@ -86,18 +86,6 @@ test('minimal usage', () => {
           '--force',
         ],
         Essential: true,
-        Image: {
-          'Fn::Join': [
-            '',
-            [
-              '123456789.dkr.ecr.us-east-1.',
-              {
-                Ref: 'AWS::URLSuffix',
-              },
-              '/aws-cdk/assets:38999a3ed09f1350ee893dfbdf35b16e66cf74d475a4c7e0cc8cdef7b16dc0c7',
-            ],
-          ],
-        },
         LogConfiguration: {
           LogDriver: 'awslogs',
           Options: {
