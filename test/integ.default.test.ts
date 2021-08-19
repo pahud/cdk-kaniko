@@ -94,7 +94,7 @@ test('minimal usage', () => {
               {
                 Ref: 'AWS::URLSuffix',
               },
-              '/aws-cdk/assets:8b0a26aabbdd052682e08242ae76cd903c22e3a8356ea0f5c15e536b6a7c99ab',
+              '/aws-cdk/assets:38999a3ed09f1350ee893dfbdf35b16e66cf74d475a4c7e0cc8cdef7b16dc0c7',
             ],
           ],
         },
