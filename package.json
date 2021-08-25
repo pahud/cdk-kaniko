@@ -42,7 +42,7 @@
     "eslint": "^7.32.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.4.0",
-    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-import": "^2.24.2",
     "jest": "^26.6.3",
     "jest-junit": "^12",
     "jsii": "^1.33.0",
@@ -62,7 +62,7 @@
     "@aws-cdk/aws-ecs": "^1.96.0",
     "@aws-cdk/aws-events": "^1.96.0",
     "@aws-cdk/core": "^1.96.0",
-    "cdk-fargate-run-task": "^0.1.61",
+    "cdk-fargate-run-task": "^0.1.62",
     "constructs": "^3.2.27"
   },
   "dependencies": {
@@ -71,7 +71,7 @@
     "@aws-cdk/aws-ecs": "^1.96.0",
     "@aws-cdk/aws-events": "^1.96.0",
     "@aws-cdk/core": "^1.96.0",
-    "cdk-fargate-run-task": "^0.1.61"
+    "cdk-fargate-run-task": "^0.1.62"
   },
   "bundledDependencies": [],
   "keywords": [
