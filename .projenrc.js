@@ -1,6 +1,6 @@
 const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism } = require('projen');
 
-const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN'
+const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
 const project = new AwsCdkConstructLibrary({
   author: 'Pahud Hsieh',
@@ -18,9 +18,11 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-ecs',
     '@aws-cdk/aws-events',
   ],
+  minNodeVersion: '12.20.0',
   deps: ['cdk-fargate-run-task'],
   peerDeps: ['cdk-fargate-run-task'],
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
+    ignoreProjen: false,
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
       secret: AUTOMATION_TOKEN,
