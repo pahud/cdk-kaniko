@@ -36,9 +36,9 @@
   "devDependencies": {
     "@aws-cdk/assert": "^1.96.0",
     "@types/jest": "^26.0.24",
-    "@types/node": "^10.17.0",
-    "@typescript-eslint/eslint-plugin": "^4.29.3",
-    "@typescript-eslint/parser": "^4.29.3",
+    "@types/node": "^12.20.0",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
     "eslint": "^7.32.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.4.0",
@@ -51,10 +51,10 @@
     "jsii-pacmak": "^1.34.0",
     "json-schema": "^0.3.0",
     "npm-check-updates": "^11",
-    "projen": "^0.27.33",
+    "projen": "^0.27.50",
     "standard-version": "^9",
     "ts-jest": "^26.5.6",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.2"
   },
   "peerDependencies": {
     "@aws-cdk/aws-ec2": "^1.96.0",
@@ -62,7 +62,7 @@
     "@aws-cdk/aws-ecs": "^1.96.0",
     "@aws-cdk/aws-events": "^1.96.0",
     "@aws-cdk/core": "^1.96.0",
-    "cdk-fargate-run-task": "^0.1.63",
+    "cdk-fargate-run-task": "^0.1.75",
     "constructs": "^3.2.27"
   },
   "dependencies": {
@@ -71,7 +71,7 @@
     "@aws-cdk/aws-ecs": "^1.96.0",
     "@aws-cdk/aws-events": "^1.96.0",
     "@aws-cdk/core": "^1.96.0",
-    "cdk-fargate-run-task": "^0.1.63"
+    "cdk-fargate-run-task": "^0.1.75"
   },
   "bundledDependencies": [],
   "keywords": [
@@ -80,6 +80,9 @@
     "fargate",
     "kaniko"
   ],
+  "engines": {
+    "node": ">= 12.20.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",

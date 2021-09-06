@@ -18,6 +18,7 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-ecs',
     '@aws-cdk/aws-events',
   ],
+  minNodeVersion: '12.20.0',
   deps: ['cdk-fargate-run-task'],
   peerDeps: ['cdk-fargate-run-task'],
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
