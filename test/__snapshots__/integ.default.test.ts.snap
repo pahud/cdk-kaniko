@@ -10,18 +10,6 @@ Object {
     },
   },
   "Parameters": Object {
-    "AssetParameters11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0dArtifactHash80EE9514": Object {
-      "Description": "Artifact hash for asset \\"11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0d\\"",
-      "Type": "String",
-    },
-    "AssetParameters11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0dS3Bucket3E962F58": Object {
-      "Description": "S3 bucket for asset \\"11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0d\\"",
-      "Type": "String",
-    },
-    "AssetParameters11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0dS3VersionKey0C75EEFB": Object {
-      "Description": "S3 key for asset version \\"11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0d\\"",
-      "Type": "String",
-    },
     "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24ArtifactHashBA91B77F": Object {
       "Description": "Artifact hash for asset \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
       "Type": "String",
@@ -34,6 +22,18 @@ Object {
       "Description": "S3 key for asset version \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
       "Type": "String",
     },
+    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797ArtifactHashAAFCA968": Object {
+      "Description": "Artifact hash for asset \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
+      "Type": "String",
+    },
+    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9": Object {
+      "Description": "S3 bucket for asset \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
+      "Type": "String",
+    },
+    "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9": Object {
+      "Description": "S3 key for asset version \\"f3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797\\"",
+      "Type": "String",
+    },
   },
   "Resources": Object {
     "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
@@ -44,7 +44,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0dS3Bucket3E962F58",
+            "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3BucketBEE108A9",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -57,7 +57,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0dS3VersionKey0C75EEFB",
+                          "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
                         },
                       ],
                     },
@@ -70,7 +70,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters11a850054982c7a762dfcb33f4b473b67940073fd1db01635b64b04c0529ba0dS3VersionKey0C75EEFB",
+                          "Ref": "AssetParametersf3d3a3cc7f26921b237eff24fc5dd7aef8f0465a1f376b8f7918eb3d4b3e8797S3VersionKeyA877E3C9",
                         },
                       ],
                     },
@@ -324,7 +324,7 @@ Object {
                   Object {
                     "Ref": "AWS::URLSuffix",
                   },
-                  "/aws-cdk/assets:8b0a26aabbdd052682e08242ae76cd903c22e3a8356ea0f5c15e536b6a7c99ab",
+                  "/aws-cdk/assets:38999a3ed09f1350ee893dfbdf35b16e66cf74d475a4c7e0cc8cdef7b16dc0c7",
                 ],
               ],
             },
@@ -622,13 +622,20 @@ Object {
       "Type": "AWS::EC2::SecurityGroup",
     },
     "KanikoDemoCluster45D96CBB": Object {
+      "Type": "AWS::ECS::Cluster",
+    },
+    "KanikoDemoClusterBDD62950": Object {
       "Properties": Object {
         "CapacityProviders": Array [
           "FARGATE",
           "FARGATE_SPOT",
         ],
+        "Cluster": Object {
+          "Ref": "KanikoDemoCluster45D96CBB",
+        },
+        "DefaultCapacityProviderStrategy": Array [],
       },
-      "Type": "AWS::ECS::Cluster",
+      "Type": "AWS::ECS::ClusterCapacityProviderAssociations",
     },
     "KanikoDemoRepoE4811266": Object {
       "DeletionPolicy": "Delete",
@@ -1136,7 +1143,7 @@ Object {
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs14.x",
       },
       "Type": "AWS::Lambda::Function",
     },
