@@ -18,7 +18,6 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-ecs',
     '@aws-cdk/aws-events',
   ],
-  minNodeVersion: '12.20.0',
   deps: ['cdk-fargate-run-task'],
   peerDeps: ['cdk-fargate-run-task'],
   depsUpgrade: DependenciesUpgradeMechanism.githubWorkflow({
@@ -42,6 +41,11 @@ const project = new AwsCdkConstructLibrary({
     'fargate',
     'aws',
   ],
+});
+
+project.package.addField('resolutions', {
+  'pac-resolver': '^5.0.0',
+  'set-value': '^4.0.1',
 });
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'images', 'yarn-error.log'];
