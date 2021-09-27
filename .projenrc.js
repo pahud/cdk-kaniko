@@ -69,6 +69,8 @@ let gitpod = new Gitpod(project, {
 
 gitpod.addCustomTask({
   init: 'yarn gitpod:prebuild',
+  // always upgrade after init
+  command: 'npx projen upgrade',
 });
 
 gitpod.addVscodeExtensions(

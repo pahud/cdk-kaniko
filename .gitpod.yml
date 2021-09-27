@@ -3,7 +3,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: yarn gitpod:prebuild
+  - command: npx projen upgrade
+    init: yarn gitpod:prebuild
 github:
   prebuilds:
     addCheck: true
