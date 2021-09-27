@@ -1,4 +1,4 @@
-const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism } = require('projen');
+const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism, Gitpod } = require('projen');
 
 const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
@@ -47,6 +47,33 @@ project.package.addField('resolutions', {
   'pac-resolver': '^5.0.0',
   'set-value': '^4.0.1',
 });
+
+const gitpodPrebuild = project.addTask('gitpod:prebuild', {
+  description: 'Prebuild setup for Gitpod',
+});
+gitpodPrebuild.exec('yarn install');
+gitpodPrebuild.exec('yarn build');
+
+let gitpod = new Gitpod(project, {
+  prebuilds: {
+    addCheck: true,
+    addBadge: true,
+    addLabel: true,
+    branches: true,
+    pullRequests: true,
+    pullRequestsFromForks: true,
+  },
+});
+
+gitpod.addCustomTask({
+  init: 'yarn gitpod:prebuild',
+})
+
+gitpod.addVscodeExtensions(
+  'dbaeumer.vscode-eslint',
+  'ms-azuretools.vscode-docker',
+  'AmazonWebServices.aws-toolkit-vscode',
+);
 
 const common_exclude = ['cdk.out', 'cdk.context.json', 'images', 'yarn-error.log'];
 project.npmignore.exclude(...common_exclude);
