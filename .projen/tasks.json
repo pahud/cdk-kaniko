@@ -263,7 +263,7 @@
           "exec": "yarn install"
         },
         {
-          "exec": "yarn build"
+          "exec": "npx projen compile"
         }
       ]
     },
