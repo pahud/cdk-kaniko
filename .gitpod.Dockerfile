@@ -1,4 +1,4 @@
-FROM jsii/superchain
+FROM jsii/superchain:node14
 
 RUN mv $(which aws) /usr/local/bin/awscliv1
 
