@@ -51,8 +51,9 @@ project.package.addField('resolutions', {
 const gitpodPrebuild = project.addTask('gitpod:prebuild', {
   description: 'Prebuild setup for Gitpod',
 });
+// install and compile only, do not test or package.
 gitpodPrebuild.exec('yarn install');
-gitpodPrebuild.exec('yarn build');
+gitpodPrebuild.exec('yarn compile');
 
 let gitpod = new Gitpod(project, {
   dockerImage: DevEnvironmentDockerImage.fromFile('.gitpod.Dockerfile'),
