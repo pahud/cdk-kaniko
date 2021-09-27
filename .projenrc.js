@@ -56,7 +56,7 @@ gitpodPrebuild.exec('yarn install');
 gitpodPrebuild.exec('npx projen compile');
 
 let gitpod = new Gitpod(project, {
-  dockerImage: DevEnvironmentDockerImage.fromFile('.gitpod.Dockerfile'),
+  dockerImage: DevEnvironmentDockerImage.fromImage('public.ecr.aws/pahudnet/gitpod-workspace:latest'),
   prebuilds: {
     addCheck: true,
     addBadge: true,
