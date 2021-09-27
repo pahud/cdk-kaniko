@@ -1,4 +1,4 @@
-const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism, Gitpod } = require('projen');
+const { AwsCdkConstructLibrary, DependenciesUpgradeMechanism, DevEnvironmentDockerImage, Gitpod } = require('projen');
 
 const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 
@@ -55,6 +55,7 @@ gitpodPrebuild.exec('yarn install');
 gitpodPrebuild.exec('yarn build');
 
 let gitpod = new Gitpod(project, {
+  dockerImage: DevEnvironmentDockerImage.fromFile('.gitpod.Dockerfile'),
   prebuilds: {
     addCheck: true,
     addBadge: true,
@@ -67,7 +68,7 @@ let gitpod = new Gitpod(project, {
 
 gitpod.addCustomTask({
   init: 'yarn gitpod:prebuild',
-})
+});
 
 gitpod.addVscodeExtensions(
   'dbaeumer.vscode-eslint',
