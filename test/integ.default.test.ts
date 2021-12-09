@@ -1,6 +1,6 @@
 import { SynthUtils } from '@aws-cdk/assert';
 import '@aws-cdk/assert/jest';
-import * as cdk from '@aws-cdk/core';
+import * as cdk from 'aws-cdk-lib';
 import { Kaniko } from '../src';
 
 test('minimal usage', () => {
