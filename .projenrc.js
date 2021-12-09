@@ -16,6 +16,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   devDeps: [
     '@aws-cdk/assert',
   ],
+  workflowNodeVersion: '14.17.0',
   depsUpgradeOptions: {
     ignoreProjen: false,
     workflowOptions: {
