@@ -9,32 +9,6 @@ Object {
       },
     },
   },
-  "Parameters": Object {
-    "AssetParameters11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2ArtifactHashF319B5BD": Object {
-      "Description": "Artifact hash for asset \\"11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2\\"",
-      "Type": "String",
-    },
-    "AssetParameters11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2S3Bucket04AFB68D": Object {
-      "Description": "S3 bucket for asset \\"11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2\\"",
-      "Type": "String",
-    },
-    "AssetParameters11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2S3VersionKeyC247374B": Object {
-      "Description": "S3 key for asset version \\"11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2\\"",
-      "Type": "String",
-    },
-    "AssetParametersb120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827ArtifactHash1355580A": Object {
-      "Description": "Artifact hash for asset \\"b120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827\\"",
-      "Type": "String",
-    },
-    "AssetParametersb120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827S3Bucket2070BA0A": Object {
-      "Description": "S3 bucket for asset \\"b120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827\\"",
-      "Type": "String",
-    },
-    "AssetParametersb120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827S3VersionKeyB95D17C3": Object {
-      "Description": "S3 key for asset version \\"b120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827\\"",
-      "Type": "String",
-    },
-  },
   "Resources": Object {
     "AWS679f53fac002430cb0da5b7982bd22872D164C4C": Object {
       "DependsOn": Array [
@@ -43,42 +17,8 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2S3Bucket04AFB68D",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2S3VersionKeyC247374B",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2S3VersionKeyC247374B",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
+          "S3Bucket": "cdk-hnb659fds-assets-123456789-us-east-1",
+          "S3Key": "11d371859e49f3b1a49896583254890801a40beada56e4c84409a179a221e2e2.zip",
         },
         "Handler": "index.handler",
         "Role": Object {
@@ -218,7 +158,7 @@ Object {
                     Object {
                       "Ref": "AWS::Partition",
                     },
-                    ":ecr:us-east-1:123456789:repository/aws-cdk/assets",
+                    ":ecr:us-east-1:123456789:repository/cdk-hnb659fds-container-assets-123456789-us-east-1",
                   ],
                 ],
               },
@@ -317,16 +257,7 @@ Object {
             ],
             "Essential": true,
             "Image": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "123456789.dkr.ecr.us-east-1.",
-                  Object {
-                    "Ref": "AWS::URLSuffix",
-                  },
-                  "/aws-cdk/assets:38999a3ed09f1350ee893dfbdf35b16e66cf74d475a4c7e0cc8cdef7b16dc0c7",
-                ],
-              ],
+              "Fn::Sub": "123456789.dkr.ecr.us-east-1.\${AWS::URLSuffix}/cdk-hnb659fds-container-assets-123456789-us-east-1:f5edb4c146c3b4314f65a98735fb11ab5ee24ecf5a9672095b008fde67868f8d",
             },
             "LogConfiguration": Object {
               "LogDriver": "awslogs",
@@ -1099,42 +1030,8 @@ Object {
       ],
       "Properties": Object {
         "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParametersb120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827S3Bucket2070BA0A",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersb120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827S3VersionKeyB95D17C3",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersb120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827S3VersionKeyB95D17C3",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
+          "S3Bucket": "cdk-hnb659fds-assets-123456789-us-east-1",
+          "S3Key": "b120b13d9d868c7622e7db1b68bae4c0f82ffd0227b8c15f2cef38e186ff3827.zip",
         },
         "Handler": "index.handler",
         "Role": Object {

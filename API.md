@@ -19,8 +19,8 @@ Name|Description
 
 
 
-__Implements__: [IConstruct](#constructs-iconstruct), [IConstruct](#aws-cdk-core-iconstruct), [IConstruct](#constructs-iconstruct), [IDependable](#aws-cdk-core-idependable)
-__Extends__: [Construct](#aws-cdk-core-construct)
+__Implements__: [IConstruct](#constructs-iconstruct), [IDependable](#constructs-idependable)
+__Extends__: [Construct](#constructs-construct)
 
 ### Initializer
 
@@ -31,12 +31,12 @@ __Extends__: [Construct](#aws-cdk-core-construct)
 new Kaniko(scope: Construct, id: string, props: KanikoProps)
 ```
 
-* **scope** (<code>[Construct](#aws-cdk-core-construct)</code>)  *No description*
+* **scope** (<code>[Construct](#constructs-construct)</code>)  *No description*
 * **id** (<code>string</code>)  *No description*
 * **props** (<code>[KanikoProps](#cdk-kaniko-kanikoprops)</code>)  *No description*
   * **context** (<code>string</code>)  Kaniko build context. 
   * **contextSubPath** (<code>string</code>)  The context sub path. __*Optional*__
-  * **destinationRepository** (<code>[IRepository](#aws-cdk-aws-ecr-irepository)</code>)  The target ECR repository. __*Default*__: create a new ECR private repository
+  * **destinationRepository** (<code>[aws_ecr.IRepository](#aws-cdk-lib-aws-ecr-irepository)</code>)  The target ECR repository. __*Default*__: create a new ECR private repository
   * **dockerfile** (<code>string</code>)  The Dockerfile for the image building. __*Default*__: Dockerfile
   * **fargateSpot** (<code>boolean</code>)  Use FARGATE_SPOT capacity provider. __*Optional*__
 
@@ -47,10 +47,10 @@ new Kaniko(scope: Construct, id: string, props: KanikoProps)
 
 Name | Type | Description 
 -----|------|-------------
-**cluster** | <code>[ICluster](#aws-cdk-aws-ecs-icluster)</code> | <span></span>
-**destinationRepository** | <code>[IRepository](#aws-cdk-aws-ecr-irepository)</code> | <span></span>
-**task** | <code>[FargateTaskDefinition](#aws-cdk-aws-ecs-fargatetaskdefinition)</code> | <span></span>
-**vpc** | <code>[IVpc](#aws-cdk-aws-ec2-ivpc)</code> | <span></span>
+**cluster** | <code>[aws_ecs.ICluster](#aws-cdk-lib-aws-ecs-icluster)</code> | <span></span>
+**destinationRepository** | <code>[aws_ecr.IRepository](#aws-cdk-lib-aws-ecr-irepository)</code> | <span></span>
+**task** | <code>[aws_ecs.FargateTaskDefinition](#aws-cdk-lib-aws-ecs-fargatetaskdefinition)</code> | <span></span>
+**vpc** | <code>[aws_ec2.IVpc](#aws-cdk-lib-aws-ec2-ivpc)</code> | <span></span>
 
 ### Methods
 
@@ -64,7 +64,7 @@ buildImage(id: string, schedule?: Schedule): void
 ```
 
 * **id** (<code>string</code>)  *No description*
-* **schedule** (<code>[Schedule](#aws-cdk-aws-events-schedule)</code>)  The schedule to repeatedly build the image.
+* **schedule** (<code>[aws_events.Schedule](#aws-cdk-lib-aws-events-schedule)</code>)  The schedule to repeatedly build the image.
 
 
 
@@ -82,7 +82,7 @@ Name | Type | Description
 -----|------|-------------
 **context** | <code>string</code> | Kaniko build context.
 **contextSubPath**? | <code>string</code> | The context sub path.<br/>__*Optional*__
-**destinationRepository**? | <code>[IRepository](#aws-cdk-aws-ecr-irepository)</code> | The target ECR repository.<br/>__*Default*__: create a new ECR private repository
+**destinationRepository**? | <code>[aws_ecr.IRepository](#aws-cdk-lib-aws-ecr-irepository)</code> | The target ECR repository.<br/>__*Default*__: create a new ECR private repository
 **dockerfile**? | <code>string</code> | The Dockerfile for the image building.<br/>__*Default*__: Dockerfile
 **fargateSpot**? | <code>boolean</code> | Use FARGATE_SPOT capacity provider.<br/>__*Optional*__
 
