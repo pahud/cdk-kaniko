@@ -1,10 +1,13 @@
 import * as path from 'path';
-import * as ec2 from '@aws-cdk/aws-ec2';
-import * as ecr from '@aws-cdk/aws-ecr';
-import * as ecs from '@aws-cdk/aws-ecs';
-import { Schedule } from '@aws-cdk/aws-events';
-import * as cdk from '@aws-cdk/core';
+import * as cdk from 'aws-cdk-lib';
+import {
+  aws_ec2 as ec2,
+  aws_ecr as ecr,
+  aws_ecs as ecs,
+  aws_events as events,
+} from 'aws-cdk-lib';
 import { RunTask } from 'cdk-fargate-run-task';
+import { Construct } from 'constructs';
 
 export interface KanikoProps {
   /**
@@ -35,13 +38,13 @@ export interface KanikoProps {
   readonly fargateSpot?: boolean;
 }
 
-export class Kaniko extends cdk.Construct {
-  readonly destinationRepository: ecr.IRepository
+export class Kaniko extends Construct {
+  readonly destinationRepository: ecr.IRepository;
   readonly cluster: ecs.ICluster;
   readonly task: ecs.FargateTaskDefinition;
   readonly vpc: ec2.IVpc;
   private fargateSpot: boolean;
-  constructor(scope: cdk.Construct, id: string, props: KanikoProps) {
+  constructor(scope: Construct, id: string, props: KanikoProps) {
     super(scope, id);
 
     this.fargateSpot = props.fargateSpot ?? false;
@@ -49,7 +52,7 @@ export class Kaniko extends cdk.Construct {
     this.vpc = getOrCreateVpc(this);
     this.cluster = new ecs.Cluster(this, 'Cluster', {
       vpc: this.vpc,
-      capacityProviders: ['FARGATE', 'FARGATE_SPOT'],
+      enableFargateCapacityProviders: true,
     });
     this.destinationRepository = props.destinationRepository ?? this._createDestinationRepository();
 
@@ -88,7 +91,7 @@ export class Kaniko extends cdk.Construct {
    * Build the image with kaniko.
    * @param schedule The schedule to repeatedly build the image
    */
-  public buildImage(id: string, schedule?: Schedule) {
+  public buildImage(id: string, schedule?: events.Schedule) {
     // run it just once
     const newRunTask = new RunTask(this, `BuildImage${id}`, {
       task: this.task,
@@ -108,7 +111,7 @@ export class Kaniko extends cdk.Construct {
   }
 }
 
-function getOrCreateVpc(scope: cdk.Construct): ec2.IVpc {
+function getOrCreateVpc(scope: Construct): ec2.IVpc {
   // use an existing vpc or create a new one
   return scope.node.tryGetContext('use_default_vpc') === '1'
     || process.env.CDK_USE_DEFAULT_VPC === '1' ? ec2.Vpc.fromLookup(scope, 'Vpc', { isDefault: true }) :
