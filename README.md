@@ -4,7 +4,7 @@
 
 # `cdk-kaniko`
 
-Build images with `kanilo` in **AWS Fargate**
+Build images with `kaniko` in **AWS Fargate**
 
 # About
 
