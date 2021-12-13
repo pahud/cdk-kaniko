@@ -39,7 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.0.0",
-    "cdk-fargate-run-task": "^0.1.166",
+    "cdk-fargate-run-task": "^2.0.6",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
@@ -60,11 +60,11 @@
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.0.0",
-    "cdk-fargate-run-task": "^0.1.166",
+    "cdk-fargate-run-task": "^2.0.6",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "cdk-fargate-run-task": "^0.1.166"
+    "cdk-fargate-run-task": "^2.0.6"
   },
   "bundledDependencies": [],
   "keywords": [

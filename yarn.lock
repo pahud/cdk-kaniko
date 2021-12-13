@@ -1454,10 +1454,10 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk-fargate-run-task@^0.1.166:
-  version "0.1.166"
-  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-0.1.166.tgz#314712f649de451b2841834e812a8b4aa0cad7dd"
-  integrity sha512-6SyX069UpC+BQnhOwSqwFz0v77GEuMSjvUeuz2kplzgmLfP47JuRuvl0LqJSz24UboZuu4EdHUDN2I5Zt6ZdlA==
+cdk-fargate-run-task@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/cdk-fargate-run-task/-/cdk-fargate-run-task-2.0.6.tgz#a6205db55b6d10899f734d9d824b0e5bcf042825"
+  integrity sha512-4U0O+JqdsuW0MSDHqOrZqRvHIQf+OKxz7uNHHkZqwmE1Q/LVNGgl7DzR1I/wmZEMHQoqQK0rr2/3NZ5PCrcWxg==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
