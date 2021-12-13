@@ -13,9 +13,20 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/pahud/cdk-kaniko.git',
   deps: ['cdk-fargate-run-task'],
   peerDeps: ['cdk-fargate-run-task'],
-  devDeps: [
-    '@aws-cdk/assert',
-  ],
+  /**
+   * we default release the main branch(cdkv2) with major version 2.
+   */
+  majorVersion: 2,
+  defaultReleaseBranch: 'main',
+  /**
+    * we also release the cdkv1 branch with major version 1.
+    */
+  releaseBranches: {
+    cdkv1: { npmDistTag: 'cdkv1', majorVersion: 1 },
+  },
+  autoApproveOptions: {
+    secret: 'PROJEN_GITHUB_TOKEN',
+  },
   workflowNodeVersion: '14.17.0',
   depsUpgradeOptions: {
     ignoreProjen: false,

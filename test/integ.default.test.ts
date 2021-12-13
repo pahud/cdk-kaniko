@@ -1,5 +1,3 @@
-import { SynthUtils } from '@aws-cdk/assert';
-import '@aws-cdk/assert/jest';
 import * as cdk from 'aws-cdk-lib';
 import { Kaniko } from '../src';
 
@@ -22,9 +20,13 @@ test('minimal usage', () => {
   kaniko.buildImage('once');
 
   // THEN
-  expect(SynthUtils.synthesize(stack).template).toMatchSnapshot();
-
-  expect(stack).toHaveResourceLike('AWS::ECS::TaskDefinition', {
+  const t = cdk.assertions.Template.fromStack(stack);
+  // should match snapshot
+  expect(t).toMatchSnapshot();
+  // should have a task definition
+  t.resourceCountIs('AWS::ECS::TaskDefinition', 1);
+  // and it should look like this
+  t.hasResourceProperties('AWS::ECS::TaskDefinition', {
     ContainerDefinitions: [
       {
         Command: [
@@ -86,6 +88,9 @@ test('minimal usage', () => {
           '--force',
         ],
         Essential: true,
+        Image: {
+          'Fn::Sub': '123456789.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-123456789-us-east-1:f5edb4c146c3b4314f65a98735fb11ab5ee24ecf5a9672095b008fde67868f8d',
+        },
         LogConfiguration: {
           LogDriver: 'awslogs',
           Options: {
