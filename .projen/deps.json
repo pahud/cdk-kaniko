@@ -2,11 +2,12 @@
   "dependencies": [
     {
       "name": "@types/jest",
+      "version": "^27",
       "type": "build"
     },
     {
       "name": "@types/node",
-      "version": "^14.17.0",
+      "version": "^14",
       "type": "build"
     },
     {
@@ -22,10 +23,6 @@
     {
       "name": "aws-cdk-lib",
       "version": "2.0.0",
-      "type": "build"
-    },
-    {
-      "name": "cdk-fargate-run-task",
       "type": "build"
     },
     {
@@ -51,12 +48,13 @@
       "type": "build"
     },
     {
-      "name": "jest",
+      "name": "jest-junit",
+      "version": "^13",
       "type": "build"
     },
     {
-      "name": "jest-junit",
-      "version": "^13",
+      "name": "jest",
+      "version": "^27",
       "type": "build"
     },
     {
@@ -81,7 +79,7 @@
     },
     {
       "name": "npm-check-updates",
-      "version": "^11",
+      "version": "^15",
       "type": "build"
     },
     {
@@ -95,6 +93,7 @@
     },
     {
       "name": "ts-jest",
+      "version": "^27",
       "type": "build"
     },
     {
